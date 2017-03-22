@@ -1,0 +1,40 @@
+{
+  "name": "lazy-piggy",
+  "version": "0.1.0",
+  "description": "A simple web server for static sites with optional basic authentication",
+  "main": "index.js",
+  "scripts": {
+    "test": "eslint index.js bin/lazy-piggy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/judas-christ/lazy-piggy.git"
+  },
+  "keywords": [
+    "web-server",
+    "static",
+    "basic-auth"
+  ],
+  "author": "Daniel Hägglund <daniel.hagglund@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/judas-christ/lazy-piggy/issues"
+  },
+  "homepage": "https://github.com/judas-christ/lazy-piggy#readme",
+  "dependencies": {
+    "basic-auth": "^1.1.0",
+    "compression": "^1.6.2",
+    "connect": "^3.6.0",
+    "rc": "^1.1.7",
+    "serve-static": "^1.12.1"
+  },
+  "devDependencies": {
+    "eslint": "^3.18.0",
+    "eslint-config-standard": "^7.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-node": "^4.2.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^2.1.1",
+    "pre-commit": "^1.2.2"
+  }
+}
