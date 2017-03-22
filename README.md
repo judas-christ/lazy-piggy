@@ -10,7 +10,7 @@ Perfect you need a simple static web server with basic authentication, such as f
 
 Lazy Piggy can be used from the command line or from node. All options are available in all modes.
 
-### Options´
+### Options
 
 |Option  | Description | Default |
 |-|-|-|
@@ -38,9 +38,10 @@ Use Lazy Piggy in node like so:
 ```js
 const lazyPiggy = require('lazy-piggy')
 // do other stuff and set options
-...
+// ...
+// create and start server
 const server = lazyPiggy(options)
-...
+// ...
 // stop server
 server.close()
 ```

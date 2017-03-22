@@ -2,6 +2,9 @@
   "name": "lazy-piggy",
   "version": "0.1.0",
   "description": "A simple web server for static sites with optional basic authentication",
+  "engines": {
+    "node": ">=5.12.0"
+  },
   "main": "index.js",
   "scripts": {
     "test": "eslint index.js bin/lazy-piggy"
