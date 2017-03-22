@@ -3,33 +3,33 @@ const http = require('http')
 const compression = require('compression')
 const basicAuth = require('basic-auth')
 const serveStatic = require('serve-static')
+const rc = require('rc')
 
 const defaultOptions = {
-  auth: undefined,
+  root: 'public',
   host: 'localhost',
   port: process.env.PORT || 3000,
-  root: 'public'
-}
-const defaultAuth = {
-  users: undefined,
-  realm: 'Lazy Piggy'
+  auth: {
+    users: undefined,
+    realm: 'Lazy Piggy'
+  }
 }
 
 function lazyPiggy (options) {
-  const opts = Object.assign({}, defaultOptions, options)
+  const config = rc('lazypiggy', defaultOptions)
+  const opts = Object.assign({}, config, options)
   const app = connect()
 
   // gzip/deflate outgoing responses
   app.use(compression())
 
   // basic auth
-  const auth = Object.assign({}, defaultAuth, opts.auth)
-  if (auth.realm && auth.users) {
+  if (opts.auth.realm && opts.auth.users) {
     app.use((req, res, next) => {
       const user = basicAuth(req)
-      if (user === undefined || !(user.name in auth.users && user.pass === auth.users[user.name])) {
+      if (user === undefined || !(user.name in opts.auth.users && user.pass === opts.auth.users[user.name])) {
         res.statusCode = 401
-        res.setHeader('WWW-Authenticate', `Basic realm="${auth.realm}"`)
+        res.setHeader('WWW-Authenticate', `Basic realm="${opts.auth.realm}"`)
         res.end('Unauthorized')
       } else {
         next()

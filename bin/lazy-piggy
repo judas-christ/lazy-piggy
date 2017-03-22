@@ -1,4 +1,2 @@
 #! /usr/bin/env node
-const lazyPiggy = require('../')
-const options = require('rc')('lazypiggy')
-lazyPiggy(options)
+require('../')()
